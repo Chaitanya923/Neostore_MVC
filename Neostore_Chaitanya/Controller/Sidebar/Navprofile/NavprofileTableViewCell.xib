@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NavprofileCell" rowHeight="260" id="KGk-i7-Jjw" customClass="NavprofileTableViewCell" customModule="Neostore_Chaitanya" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="260"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="453" height="260"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector" translatesAutoresizingMaskIntoConstraints="NO" id="h06-Kc-qWW">
+                        <rect key="frame" x="161.5" y="36" width="130" height="130"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="F1P-B8-cZd"/>
+                            <constraint firstAttribute="height" constant="130" id="hpf-T2-zxc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kinjal Jain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKh-ET-yTI">
+                        <rect key="frame" x="40" y="186" width="373" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="jZX-U0-4SE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kinjal.jain@wwindia.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHp-0E-q27">
+                        <rect key="frame" x="20" y="223" width="413" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="highlightedColor" red="0.17254901959999999" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="h06-Kc-qWW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="33e-jS-2jW"/>
+                    <constraint firstItem="TKh-ET-yTI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="5wG-mr-iQ2"/>
+                    <constraint firstItem="TKh-ET-yTI" firstAttribute="top" secondItem="h06-Kc-qWW" secondAttribute="bottom" constant="20" id="7US-ED-Rlf"/>
+                    <constraint firstItem="VHp-0E-q27" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="L9e-Ic-C4r"/>
+                    <constraint firstItem="VHp-0E-q27" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="N94-3u-fgA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TKh-ET-yTI" secondAttribute="trailing" constant="20" id="QWh-EA-mn6"/>
+                    <constraint firstItem="VHp-0E-q27" firstAttribute="top" secondItem="TKh-ET-yTI" secondAttribute="bottom" constant="12" id="SPH-eM-Zbu"/>
+                    <constraint firstItem="TKh-ET-yTI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="f4O-wG-9g0"/>
+                    <constraint firstAttribute="trailing" secondItem="VHp-0E-q27" secondAttribute="trailing" constant="20" id="g3T-kV-EIK"/>
+                    <constraint firstItem="h06-Kc-qWW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="v9h-Y2-uLP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.17254901959999999" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="dp" destination="h06-Kc-qWW" id="hyI-nB-3uV"/>
+                <outlet property="email" destination="VHp-0E-q27" id="Q0a-Ye-icj"/>
+                <outlet property="name" destination="TKh-ET-yTI" id="FLx-Qk-svq"/>
+            </connections>
+            <point key="canvasLocation" x="125.36231884057972" y="131.91964285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector" width="200" height="200"/>
+    </resources>
+</document>

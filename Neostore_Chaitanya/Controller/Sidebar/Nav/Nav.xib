@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NavCell" id="KGk-i7-Jjw" customClass="Nav" customModule="Neostore_Chaitanya" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xCJ-6M-5PS">
+                        <rect key="frame" x="5" y="9" width="22" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="1x7-4O-hud"/>
+                            <constraint firstAttribute="width" constant="22" id="QGK-EL-RhZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Carts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6C-BP-hct">
+                        <rect key="frame" x="42" y="10" width="263" height="22"/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xCJ-6M-5PS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="F02-oE-v6W"/>
+                    <constraint firstItem="o6C-BP-hct" firstAttribute="top" secondItem="xCJ-6M-5PS" secondAttribute="top" id="MF4-7h-83q"/>
+                    <constraint firstAttribute="bottom" secondItem="xCJ-6M-5PS" secondAttribute="bottom" constant="10" id="MMU-yk-QXQ"/>
+                    <constraint firstAttribute="trailing" secondItem="o6C-BP-hct" secondAttribute="trailing" constant="15" id="T3w-hM-20M"/>
+                    <constraint firstItem="o6C-BP-hct" firstAttribute="leading" secondItem="xCJ-6M-5PS" secondAttribute="trailing" constant="15" id="fVi-wE-3uv"/>
+                    <constraint firstItem="o6C-BP-hct" firstAttribute="bottom" secondItem="xCJ-6M-5PS" secondAttribute="bottom" id="hc9-TC-x17"/>
+                    <constraint firstItem="o6C-BP-hct" firstAttribute="centerY" secondItem="xCJ-6M-5PS" secondAttribute="centerY" id="s4f-Fl-mDp"/>
+                    <constraint firstItem="xCJ-6M-5PS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="zah-TF-AMR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.17254901959999999" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="Navlabel" destination="o6C-BP-hct" id="G0c-5X-9OE"/>
+                <outlet property="navimg" destination="xCJ-6M-5PS" id="iVw-wT-Nfa"/>
+            </connections>
+            <point key="canvasLocation" x="28.985507246376812" y="76.339285714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+    </resources>
+</document>
