@@ -5,13 +5,17 @@
 
 import UIKit
 
-//var cat_id :  Int = 0
-//var p_category_id = [0,1,3,2,4]
 class ProductlistTableViewController: UITableViewController {
     
+    var cat_id :  Int = 0
+    var p_category_id = [0,1,3,2,4]
+    var p_category = ["","Tables","Chair","Sofas",""]
+    let stargold = #imageLiteral(resourceName: "star_check")
+    let starw = #imageLiteral(resourceName: "star_unchek")
     static func loadfromnib(_ id : Int) -> UITableViewController {
-        cat_id = p_category_id[id]
-     return ProductlistTableViewController(nibName: "ProductlistTableViewController", bundle:nil)
+        let vc = ProductlistTableViewController(nibName: "ProductlistTableViewController", bundle:nil)
+        vc.cat_id = vc.p_category_id[id]
+     return vc
  }
   
     var pro_list :[ProductModel] = []

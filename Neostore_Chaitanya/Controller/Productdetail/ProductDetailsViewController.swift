@@ -7,22 +7,23 @@
 
 import UIKit
 
-var pro_id : Int = 0
-
-var p_det = ProductDetails(id: 3, productCategoryID: 1, name: "Vishwakarma Solid Table", producer: "Lelo", description: "Vishwakarma Furniture Solid Wood Coffee Table (Finish Color - Dark Black)", cost: 3333, rating: 3, viewCount: 10670, created: "2015-09-07T09:43:15+0000", modified: "2022-02-02T11:17:43+0000", productImages: [ProductImage(id: 4, productID: 3, image: "http://staging.php-dev.in:8844/trainingapp/uploads/prod_img/thumb/medium/3d4007c74793ff2564de15d71.jpeg", created: "2015-09-07T09:43:45+0000", modified: "2015-09-07T09:43:45+0000")])
-var p_category = ["","Tables","Chair","Sofas",""]
-
-let stargold = #imageLiteral(resourceName: "star_check")
-let starw = #imageLiteral(resourceName: "star_unchek")
 
 class ProductDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    var pro_id : Int = 0
+
+    var p_det = ProductDetails(id: 3, productCategoryID: 1, name: "Vishwakarma Solid Table", producer: "Lelo", description: "Vishwakarma Furniture Solid Wood Coffee Table (Finish Color - Dark Black)", cost: 3333, rating: 3, viewCount: 10670, created: "2015-09-07T09:43:15+0000", modified: "2022-02-02T11:17:43+0000", productImages: [ProductImage(id: 4, productID: 3, image: "http://staging.php-dev.in:8844/trainingapp/uploads/prod_img/thumb/medium/3d4007c74793ff2564de15d71.jpeg", created: "2015-09-07T09:43:45+0000", modified: "2015-09-07T09:43:45+0000")])
+    var p_category = ["","Tables","Chair","Sofas",""]
+
+    let stargold = #imageLiteral(resourceName: "star_check")
+    let starw = #imageLiteral(resourceName: "star_unchek")
 
     @IBOutlet weak var ProductDetailTableView: UITableView!
     var productQuantityDialog = ProductQuantityDialog()
     
     static func loadfromnib(_ pr_id : Int) -> UIViewController {
-        pro_id = pr_id
-        return ProductDetailsViewController(nibName: "ProductDetailsViewController", bundle:nil)
+        let vc = ProductDetailsViewController(nibName: "ProductDetailsViewController", bundle:nil)
+        vc.pro_id = pr_id
+        return vc
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,7 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate,UITable
     //Mark: - API Data Fetching
     func CallService()
     {
-        APIServiceDude.shared.getProductDetails (of: pro_id) {
+        APIServiceDude.shared.getProductDetails (of: pro_id) { [self]
             result in
             switch result {
             case .success(let fetchedProducts):
@@ -139,7 +140,7 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate,UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductdescCell" , for: indexPath) as! ProductDescriptionTableViewCell
             cell.Cost.text = "Rs. " + String(p_det.cost)
             cell.descriptrion.text = p_det.description
-            DispatchQueue.global().async {
+            DispatchQueue.global().async { [self] in
                 // Fetch Image Data
                 if let data = try? Data(contentsOf: URL(string: p_det.productImages[0].image)!) {
                     DispatchQueue.main.async {

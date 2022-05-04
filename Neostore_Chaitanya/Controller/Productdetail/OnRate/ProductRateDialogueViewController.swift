@@ -13,6 +13,8 @@ var prate_img : String = ""
 var ratingvalue : Int = 1
 class ProductRateDialogueViewController: UIViewController {
 
+    let stargold = #imageLiteral(resourceName: "star_check")
+    let starw = #imageLiteral(resourceName: "star_unchek")
     
     @IBOutlet weak var Prod_title: UILabel!
     @IBOutlet weak var Prod_img: UIImageView!
@@ -82,7 +84,7 @@ class ProductRateDialogueViewController: UIViewController {
     }
     
     func CallService_fetch(_ pid : Int, onhandlersponse: @escaping((Int) -> Void)){
-        APIServiceDude.shared.getProductDetails(of: pro_id) { resut in
+        APIServiceDude.shared.getProductDetails(of: prrrate_id) { resut in
             DispatchQueue.main.async {
                 switch resut {
                 case .success(let resps):

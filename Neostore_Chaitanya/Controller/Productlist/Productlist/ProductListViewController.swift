@@ -7,18 +7,20 @@
 
 import UIKit
 
-var cat_id :  Int = 0
-var p_category_id = [0,1,3,2,4]
-
 class ProductListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var ProductListingTableView: UITableView!
     
     var pro_list :[ProductModel] = []
-    
+    var cat_id :  Int = 0
+    var p_category_id = [0,1,3,2,4]
+    var p_category = ["","Tables","Chair","Sofas",""]
+    let stargold = #imageLiteral(resourceName: "star_check")
+    let starw = #imageLiteral(resourceName: "star_unchek")
     static func loadfromnib(_ id : Int) -> UIViewController {
-        cat_id = p_category_id[id]
-     return ProductListViewController(nibName: "ProductListViewController", bundle:nil)
+        let vc = ProductListViewController(nibName: "ProductListViewController", bundle:nil)
+        vc.cat_id = vc.p_category_id[id]
+     return vc
     }
     
     override func viewDidLoad() {

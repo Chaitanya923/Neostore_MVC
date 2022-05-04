@@ -110,8 +110,8 @@
             filePath = "Neostore_Chaitanya/Controller/Productdetail/OnRate/ProductRateDialogueViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "star1click(_:)"
             landmarkType = "7">
          </BreakpointContent>
