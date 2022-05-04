@@ -13,8 +13,25 @@ let sidelistimage = ["shoppingcart_icon","table","sofa_icon","chair","cupboard",
 
 class SideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var total : Int = 0
+    
     static func loadfromnib() -> UIViewController {
         return SideMenuViewController(nibName: "SideMenuViewController", bundle: nil)
+    }
+    
+    func CallService() {
+        APIServiceDude.shared.getMyCartDetails(accessToken: KeychainManagement().getAccessToken()) { result in
+            
+            DispatchQueue.main.async { [self] in
+                switch result{
+                case .success(let resps):
+                    total = Int(resps.count)
+                    menutable.reloadData()
+                case .failure(_):
+                    print("error")
+                }
+            }
+        }
     }
     
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,6 +64,14 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
             cell.Navlabel.text = sidelist[indexPath.row]
             cell.navimg.image = #imageLiteral(resourceName: sidelistimage[indexPath.row])
 //            cell.Navlabel = sidelist[indexPath.row]
+            if indexPath.row == 0 {
+                cell.badgeview.isHidden = false
+                //print(total)
+                //print(String(total))
+                cell.badgelabel.text = String(total)
+            } else {
+                cell.badgeview.isHidden = true
+            }
             cell.selectionStyle = .none
             return cell
         default:
@@ -79,9 +104,14 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
         case 1:
             switch indexPath.row {
             case 0:
-                self.navigationController?.pushViewController(CartTableViewController.loadFromNib(), animated: true)
+                if total == 0 {
+                    
+                }
+                else {
+                    self.navigationController?.pushViewController(CartListViewController.loadFromNib(), animated: true)
+                }
             case 1...4:
-                self.navigationController?.pushViewController(ProductlistTableViewController.loadfromnib(indexPath.row) , animated: true)
+                self.navigationController?.pushViewController(ProductListViewController.loadfromnib(indexPath.row) , animated: true)
             case 5:
                 self.navigationController?.pushViewController(EditProfileViewController.loadfromnib(), animated: true)
             case 7:
@@ -127,6 +157,11 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if animated == true {
+            CallService()
+        }
+    }
     /*
     // MARK: - Navigation
 

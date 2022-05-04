@@ -11,6 +11,8 @@ class AmountTVCell: UITableViewCell {
     
     static let cellIdentifier = "amountTVCell"
     
+    @IBOutlet weak var totalcosting: UILabel!
+    
     static func loadFromNib() -> UINib {
         UINib(nibName: "AmountTVCell", bundle: nil)
     }

@@ -350,8 +350,8 @@
             filePath = "Neostore_Chaitanya/Controller/Sidebar/SideMenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>

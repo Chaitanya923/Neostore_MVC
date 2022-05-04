@@ -13,7 +13,7 @@ protocol HomeControllerDelegate: AnyObject {
 class HomeableViewController: UITableViewController, CategoryTableViewCellDelegate {
     func gotoProductlist(_ p: Int) {
         print("p = ", p)
-        self.navigationController?.pushViewController(ProductlistTableViewController.loadfromnib(p), animated: true)
+        self.navigationController?.pushViewController(ProductListViewController.loadfromnib(p), animated: true)
     }
     
     

@@ -29,7 +29,7 @@ class ProductRateDialogueViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        CallService_fetch(prr_id, onhandlersponse: {
+        CallService_fetch(prrrate_id, onhandlersponse: {
             result in
             DispatchQueue.main.async { [self] in
                 if result == 1 {

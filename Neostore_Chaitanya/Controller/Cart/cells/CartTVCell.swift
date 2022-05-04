@@ -7,9 +7,19 @@
 
 import UIKit
 
+protocol  CartEditButtonDelegate {
+    func didTapEditBtn(id: Int)
+}
 class CartTVCell: UITableViewCell {
     
     static let cellIdentifier = "cartTVCell"
+    var id = 0
+    var delegate: CartEditButtonDelegate?
+    @IBOutlet weak var Producttitle: UILabel!
+    @IBOutlet weak var Category: UILabel!
+    @IBOutlet weak var cost: UILabel!
+    @IBOutlet weak var qty: UILabel!
+    @IBOutlet weak var cartimg: UIImageView!
     
     static func loadFromNib() -> UINib {
         UINib(nibName: "CartTVCell", bundle: nil)
