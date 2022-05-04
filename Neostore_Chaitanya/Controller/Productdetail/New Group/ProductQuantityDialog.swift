@@ -7,9 +7,6 @@
 
 import UIKit
 
-var prr_id : Int = 0
-var P_title : String = ""
-var P_img : String = ""
 
 protocol ProductQuantityDialogDelegate{
     func onBgViewTap()
@@ -26,9 +23,11 @@ class ProductQuantityDialog: UIViewController {
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var Prod_img: UIImageView!
     
-    @IBAction func submitBtnTap(_ sender: UIButton) {
-        print("on submit")
-        
+    var prr_id : Int = 0
+    var P_title : String = ""
+    var P_img : String = ""
+    
+    @IBAction func submitBtnTap(_ sender: UIButton) {        
         let ptemp = quantityField.text!
         guard let pt = Int(ptemp) else { return  }
         print(pt," : ", type(of: pt))
@@ -49,10 +48,10 @@ class ProductQuantityDialog: UIViewController {
     }
     
     var delegate : ProductQuantityDialogDelegate?
-    
     static func loadFromNib(_ pid : Int) -> ProductQuantityDialog {
-        prr_id = pid
-        return  ProductQuantityDialog(nibName: "ProductQuantityDialog", bundle: nil)
+        let vc = ProductQuantityDialog(nibName: "ProductQuantityDialog", bundle: nil)
+        vc.prr_id = pid
+        return vc
     }
     
     
@@ -86,23 +85,19 @@ class ProductQuantityDialog: UIViewController {
     }
     
     @objc func onBgViewTap(){
-        print("BG View Tapped")
-        //delegate?.onBgViewTap()
         self.dismiss(animated: true, completion: nil)
     }
 
     func CallService_fetch(_ pid : Int, onhandlersponse: @escaping((Int) -> Void)){
-        APIServiceDude.shared.getProductDetails(of: pro_id) { resut in
+        APIServiceDude.shared.getProductDetails(of: prr_id) { resut in
             DispatchQueue.main.async {
                 switch resut {
                 case .success(let resps):
-                    print("success")
-                    P_title = resps.data.name
-                    P_img = resps.data.productImages[0].image
+                    self.P_title = resps.data.name
+                    self.P_img = resps.data.productImages[0].image
                     
                     onhandlersponse(1)
                 case .failure(_):
-                    print("Error")
                     onhandlersponse(0)
                 }
             }
