@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
         //KeychainManagement().addAccessToken(accessToken: "61fcdddca7a32")
+        //print(KeychainManagement().getAccessToken())
         if KeychainManagement().getAccessToken() == nil {
             let mainView = Login.loadfromnib()
             let nav = UINavigationController(rootViewController: mainView)

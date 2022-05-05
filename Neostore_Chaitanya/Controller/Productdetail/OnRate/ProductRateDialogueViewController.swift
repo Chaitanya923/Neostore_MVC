@@ -7,14 +7,15 @@
 
 import UIKit
 
-var prrrate_id : Int = 0
-var prate_title  : String = ""
-var prate_img : String = ""
-var ratingvalue : Int = 1
 class ProductRateDialogueViewController: UIViewController {
 
     let stargold = #imageLiteral(resourceName: "star_check")
     let starw = #imageLiteral(resourceName: "star_unchek")
+    
+    var prrrate_id : Int = 0
+    var prate_title  : String = ""
+    var prate_img : String = ""
+    var ratingvalue : Int = 1
     
     @IBOutlet weak var Prod_title: UILabel!
     @IBOutlet weak var Prod_img: UIImageView!
@@ -25,8 +26,9 @@ class ProductRateDialogueViewController: UIViewController {
     @IBOutlet weak var Star5: UIButton!
     
     static func loadfromnib(_ pid : Int) -> ProductRateDialogueViewController {
-        prrrate_id = pid
-        return ProductRateDialogueViewController(nibName: "ProductRateDialogueViewController", bundle: nil)
+        let vc = ProductRateDialogueViewController(nibName: "ProductRateDialogueViewController", bundle: nil)
+        vc.prrrate_id = pid
+        return vc
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +87,7 @@ class ProductRateDialogueViewController: UIViewController {
     
     func CallService_fetch(_ pid : Int, onhandlersponse: @escaping((Int) -> Void)){
         APIServiceDude.shared.getProductDetails(of: prrrate_id) { resut in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 switch resut {
                 case .success(let resps):
                     print("success")

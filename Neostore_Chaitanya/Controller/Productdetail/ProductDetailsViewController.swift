@@ -33,7 +33,6 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate,UITable
         ProductDetailTableView.delegate = self
         ProductDetailTableView.dataSource = self
         
-        productQuantityDialog.delegate = self
         
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -150,8 +149,7 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate,UITable
                     }
                 }
             }
-            
-            var ProductDescriptionCVimages = ProductDescriptionTableViewCell.loadfromnib(p_det.productImages)
+            cell.img_array = p_det.productImages
             cell.imgcollectionview.reloadData()
             return cell
         case 2:
@@ -182,22 +180,6 @@ class ProductDetailsViewController: UIViewController,UITableViewDelegate,UITable
     }
 }
 
-extension ProductDetailsViewController: ProductQuantityDialogDelegate{
-  
-    
-    func tempfunc() {
-        print("tempff")
-    }
-    
-    func ontapSubmit(_ p_qty : Int) {
-        print(" p = ",p_qty)
-    }
-    
-    func onBgViewTap() {
-        debugPrint("Removing... Dialo")
-        }
-    
-}
 extension ProductDetailsViewController : ProductbuybtnDelegate{
     func ontaprate() {
         let vc = ProductRateDialogueViewController.loadfromnib(pro_id)

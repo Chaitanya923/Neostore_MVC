@@ -7,13 +7,12 @@
 
 import UIKit
 
-let sidelist = ["My Cart","Tables","Sofas","Chairs","Cupboards","My Account","Store Locator","My Orders","Logout"]
-
-let sidelistimage = ["shoppingcart_icon","table","sofa_icon","chair","cupboard","username_icon","storelocator_icon","myorders_icon","logout_icon"]
-
 class SideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var total : Int = 0
+
+    let sidelist = ["My Cart","Tables","Sofas","Chairs","Cupboards","My Account","Store Locator","My Orders","Logout"]
+    let sidelistimage = ["shoppingcart_icon","table","sofa_icon","chair","cupboard","username_icon","storelocator_icon","myorders_icon","logout_icon"]
     
     static func loadfromnib() -> UIViewController {
         return SideMenuViewController(nibName: "SideMenuViewController", bundle: nil)

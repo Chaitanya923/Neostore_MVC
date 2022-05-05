@@ -13,9 +13,9 @@ class Sidebar: UITableViewController {
 
     let sidelistimage = ["shoppingcart_icon","table","sofa_icon","chair","cupboard","username_icon","storelocator_icon","myorders_icon","logout_icon"]
 
-static func loadfromnib() -> UITableViewController {
-     return Sidebar(nibName: "Sidebar", bundle:nil)
- }
+    static func loadfromnib() -> UITableViewController {
+         return Sidebar(nibName: "Sidebar", bundle:nil)
+     }
     override func viewDidLoad() {
         super.viewDidLoad()
 

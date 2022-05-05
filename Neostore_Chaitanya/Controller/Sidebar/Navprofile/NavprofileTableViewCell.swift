@@ -17,7 +17,6 @@ class NavprofileTableViewCell: UITableViewCell {
         dp.makeRounded()
         dp.layer.borderWidth = 5
         dp.layer.borderColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

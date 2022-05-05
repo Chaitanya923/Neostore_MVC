@@ -7,18 +7,19 @@
 
 import UIKit
 
-var id : Int = 0
 
 class OrderIdViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     @IBOutlet weak var OrderIdtableview: UITableView!
     
-    
-   var Odetail : [OrderDetail] = []
-   var totalcost : Int = 0
-   static func loadfromnib(_ idd : Int) -> UIViewController {
-       id = idd
-       return OrderIdViewController(nibName: "OrderIdViewController", bundle:nil)
-   }
+    var id : Int = 0
+    var Odetail : [OrderDetail] = []
+    var totalcost : Int = 0
+    static func loadfromnib(_ idd : Int) -> UIViewController {
+        let vc = OrderIdViewController(nibName: "OrderIdViewController", bundle:nil)
+        vc.id = idd
+        return vc
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

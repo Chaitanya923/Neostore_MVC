@@ -8,12 +8,6 @@
 import UIKit
 
 
-protocol ProductQuantityDialogDelegate{
-    func onBgViewTap()
-    func ontapSubmit(_ p_qty : Int)
-    func tempfunc()
-}
-
 class ProductQuantityDialog: UIViewController {
     
     @IBOutlet weak var bgView: UIView!
@@ -30,12 +24,12 @@ class ProductQuantityDialog: UIViewController {
     @IBAction func submitBtnTap(_ sender: UIButton) {        
         let ptemp = quantityField.text!
         guard let pt = Int(ptemp) else { return  }
-        print(pt," : ", type(of: pt))
         
         CallService_AddtoCart(pt, onhandleresponse: {
             reult in
             DispatchQueue.main.async {
                 if reult == 1{
+                    self.dismiss(animated: true, completion: nil)
                     print("added to cart")
                 }
                 else{
@@ -43,11 +37,9 @@ class ProductQuantityDialog: UIViewController {
                 }
             }
         })
-        
-        self.dismiss(animated: true, completion: nil)
+    
     }
     
-    var delegate : ProductQuantityDialogDelegate?
     static func loadFromNib(_ pid : Int) -> ProductQuantityDialog {
         let vc = ProductQuantityDialog(nibName: "ProductQuantityDialog", bundle: nil)
         vc.prr_id = pid

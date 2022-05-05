@@ -20,6 +20,7 @@ class CartTVCell: UITableViewCell {
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var qty: UILabel!
     @IBOutlet weak var cartimg: UIImageView!
+    @IBOutlet weak var changeQuantity: UILabel!
     
     static func loadFromNib() -> UINib {
         UINib(nibName: "CartTVCell", bundle: nil)
@@ -31,12 +32,16 @@ class CartTVCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
         qtyView.layer.cornerRadius = 5
+        qtyView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(changeQuantityTapped)))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    @objc func changeQuantityTapped(){
+        delegate?.didTapEditBtn(id: id)
+        print("Tapped")
     }
     
 }

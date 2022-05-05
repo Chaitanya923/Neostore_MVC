@@ -93,9 +93,10 @@
                 <outlet property="Category" destination="thj-4B-Zzt" id="NNK-O1-ZRz"/>
                 <outlet property="Producttitle" destination="pVZ-sw-EAf" id="tZr-lC-LQV"/>
                 <outlet property="cartimg" destination="rHd-ut-tIO" id="3RZ-12-Ej3"/>
+                <outlet property="changeQuantity" destination="FPo-7q-h4H" id="Knc-jT-Rnl"/>
                 <outlet property="cost" destination="YQs-mj-HRJ" id="Qkg-jm-ZvB"/>
                 <outlet property="qty" destination="FPo-7q-h4H" id="vZD-Xc-7Fb"/>
-                <outlet property="qtyView" destination="znN-V5-N5x" id="ALB-QS-nJr"/>
+                <outlet property="qtyView" destination="znN-V5-N5x" id="FDi-pb-7sc"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="59.598214285714285"/>
         </tableViewCell>
